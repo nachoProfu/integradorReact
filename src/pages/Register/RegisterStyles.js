@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export const RegisterContainerStyled = styled.div`
   background: var(--background);
-  height: 650px;
+  height: 710px;
   width: 100%;
   display: flex;
   justify-content: center;

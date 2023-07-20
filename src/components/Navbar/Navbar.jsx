@@ -14,20 +14,21 @@ import ModalCart from './ModalCart/ModalCart';
 
 
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleHiddenCart } from '../../redux/cart/cartSlice'//'/../../redux/cart/cartSlice';
+import { toggleHiddenCart } from '../../redux/cart/cartSlice'
 import { Link, useNavigate } from 'react-router-dom';
 import ModalHamb from './ModalHamb/ModalHamb';
 import { HamburListContainerStyled } from './ModalHamb/ModalHamStyled';
 
-import {toggleHiddenHambur} from '../../redux/hambur/hamburSlice'
+//import {toggleHiddenHambur} from '../../redux/hambur/hamburSlice'
 import { useState } from 'react';
+import { selectSection } from '../../redux/section/sectionSlice';
 
 const Navbar = () => {
 
  const dispatch = useDispatch();
- const navigate = useNavigate();
+ //const navigate = useNavigate();
 
- const hiddenMenuHamb = useSelector(state=>state.toggleHambur.hidden);
+ //const hiddenMenuHamb = useSelector(state=>state.toggleHambur.hidden);
 
  const [open, setOpen] = useState(false);
 
@@ -55,13 +56,13 @@ const Navbar = () => {
                         </NavbarLinkContainerStyled>
                     </motion.div>
                 </Link>
-                <NavbarLinkContainerStyled >
-                    Nosotros
+                <NavbarLinkContainerStyled onClick={() => dispatch(selectSection('Abouts'))}>
+                    Nosotros  
                 </NavbarLinkContainerStyled>
-                <NavbarLinkContainerStyled>
+                <NavbarLinkContainerStyled onClick={() => dispatch(selectSection('Products'))}>
                     Productos
                 </NavbarLinkContainerStyled>
-                <NavbarLinkContainerStyled>
+                <NavbarLinkContainerStyled onClick={() => dispatch(selectSection('Contacts'))}>
                     Contactanos
                 </NavbarLinkContainerStyled>
             </HamburListContainerStyled>

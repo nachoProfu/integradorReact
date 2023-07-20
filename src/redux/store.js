@@ -7,12 +7,14 @@ import cartReducer from "./cart/cartSlice";
 import categoriesReducer from "./categories/categoriesSlice";
 import productsReducer from "./products/productsSlice";
 import hamburReducer from "./hambur/hamburSlice";
+import sectionReducer from "./section/sectionSlice";
 
 const reducer = combineReducers({
   cart: cartReducer,
   categories: categoriesReducer,
   products: productsReducer,
   toggleHambur: hamburReducer,
+  section: sectionReducer,
 });
 
 const persistConfig = {

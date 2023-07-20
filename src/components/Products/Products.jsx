@@ -18,22 +18,9 @@ const Products = () => {
         <ProductsH2Styles>Productos Elaborados</ProductsH2Styles>
         <ProductsContainerStyles>
             
-            {/* {
-             Object.entries(products).map(([,prodCards])=>{
-                return prodCards.map((prodCard)=>{
-                  if(selectedCategory){
-                    console.log(prodCard)
-                    return <Product {...prodCard} key={prodCard.id} />;
-                  }else{
-                    return null
-                  }
-                });
-             })
-            } */}
-            
-            {console.log(selectedCategory)} 
+            {/* {console.log(selectedCategory)} 
             {console.log(products)} 
-            {console.log(filteredProducts)} 
+            {console.log(filteredProducts)}  */}
             { 
             Object.entries(filteredProducts).map(([,prodCards])=>{
               return prodCards && prodCards.map((prodCard)=>{
