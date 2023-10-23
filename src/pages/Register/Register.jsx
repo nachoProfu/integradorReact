@@ -6,6 +6,9 @@ import InputForm from '../../components/UI/InputForm/InputFrom';
 
 import * as Yup from "yup";
 
+import { registerUser } from '../../axios/axiosUsers';
+import { useNavigate } from 'react-router-dom';
+
 
 const registerInitialValues = {
     name: '',
@@ -33,15 +36,23 @@ const registerInitialValues = {
   
 
 const Register = () => {
+
+  const navigate = useNavigate();
+
   return (
     <RegisterContainerStyled>
         <h1>Registrarse</h1>
         <Formik
             initialValues={registerInitialValues}
             validationSchema={registerValidationSchema}
-            onSubmit={(values, {resetForm}) => {
+            onSubmit={ async (values, {resetForm}) => {
+
                 console.log(values);
-                resetForm();
+                const user = await registerUser(values.name,values.direccion,values.telefono,values.email,values.password);
+                console.log(user);
+                if(user){
+                  navigate("/");
+                }
               }}
         >
         {({errors, touched})=>(
@@ -52,7 +63,7 @@ const Register = () => {
             <InputForm name="email" type='text' placeholder='Email'isError={errors.email}/>
             <InputForm name="password" type='password' placeholder='Password'isError={errors.password} />
                 {/* redireccionar to login */}
-            <SubmitRegisterStyled>
+            <SubmitRegisterStyled type='submit'>
               Registrarse
             </SubmitRegisterStyled>  
           </FormRegister> 

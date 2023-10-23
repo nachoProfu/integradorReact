@@ -104,3 +104,18 @@ export const CartNavContainerStyled = styled.div`
     font-size: 10px;
   }
 `;
+
+export const SpanStyled = styled.span`
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+export const UserNavContainerStyled = styled.div`
+  gap: 50px;
+  cursor: pointer;
+  span {
+    font-size: 1rem;
+    margin-left: 10px;
+  }
+`;

@@ -18,6 +18,7 @@ import { CartBtnContainerStyled,
 import { ModalOverlayStyled } from '../NavbarStyles';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { useNavigate } from 'react-router-dom';
 import { clearCart, toggleHiddenCart } from '../../../redux/cart/cartSlice';
     
 const ModalCart = () => {
@@ -25,7 +26,10 @@ const ModalCart = () => {
   const hiddenCart = useSelector(state => state.cart.hidden)
   const {cartItems} = useSelector(state => state.cart);
 
+  
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  
 
   const totalPrice = cartItems.reduce((acc, item) =>{
     return (acc += item.precio * item.quantity)
@@ -85,8 +89,12 @@ const ModalCart = () => {
         </CartTotalPriceStyled>
         <CartBtnContainerStyled>
             <CartBtnStyled
-            onClick={()=>{mostrarMje("Gracias por su compra");
-                          dispatch(clearCart())} }
+            onClick={()=>{
+              //mostrarMje("Gracias por su compra");
+              //dispatch(clearCart())
+              navigate("/checkout");
+              dispatch(toggleHiddenCart())
+            }}
             >Comprar
             </CartBtnStyled>
             <CartBtnStyled

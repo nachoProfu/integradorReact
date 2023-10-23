@@ -8,6 +8,7 @@ import categoriesReducer from "./categories/categoriesSlice";
 import productsReducer from "./products/productsSlice";
 import hamburReducer from "./hambur/hamburSlice";
 import sectionReducer from "./section/sectionSlice";
+import userReducer from "./user/userSlice";
 
 const reducer = combineReducers({
   cart: cartReducer,
@@ -15,12 +16,13 @@ const reducer = combineReducers({
   products: productsReducer,
   toggleHambur: hamburReducer,
   section: sectionReducer,
+  user: userReducer,
 });
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["cart"],
+  whitelist: ["cart", "user"],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducer);

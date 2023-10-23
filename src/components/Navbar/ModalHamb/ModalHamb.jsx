@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import {toggleHiddenHambur} from '../../../redux/hambur/hamburSlice'
 
-const ModalHamb = ({open,handleClick}) => {
+const ModalHamb = ({open,handleclick}) => {
 
   const hiddenMenuHamb = useSelector(state=>state.toggleHambur.hidden);  
   
@@ -22,7 +22,7 @@ const ModalHamb = ({open,handleClick}) => {
         ishidden={hiddenMenuHamb}
     />)} */}
 
-    <HamburContainerStyled onClick={handleClick}>
+    <HamburContainerStyled onClick={handleclick}>
         <HiMenu />
     </HamburContainerStyled>
     </>

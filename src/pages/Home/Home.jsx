@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { CategoriasWrapper, HomeWrapper } from './HomeStyles'
+import { HomeWrapper } from './HomeStyles'
 
 import Hero from '../../components/Hero/Hero';
 import Abouts from '../../components/Abouts/Abouts'
@@ -15,52 +15,55 @@ const Home = () => {
     const aboutsRef = useRef();
     const contactsRef = useRef();
 
+
+
     let sectionSelected = useSelector(state=> state.section.sectionSelected)
 
-    const doScroll = () => {
+     const doScroll = () => {
 
-        if (sectionSelected === "Abouts"){
-            window.scrollTo(
-             aboutsRef.current.getBoundingClientRect().x,
-             aboutsRef.current.getBoundingClientRect().y
-         );
-        }
+        if (sectionSelected === 'Abouts'){
+               window.scrollTo(
+                aboutsRef.current.getBoundingClientRect().x,
+                aboutsRef.current.getBoundingClientRect().y
+            );
+          }
         
         if (sectionSelected === "Products"){
-          window.scrollTo(
-            productsRef.current.getBoundingClientRect().x,
-            productsRef.current.getBoundingClientRect().y
-       );
-      }
+            window.scrollTo(
+              productsRef.current.getBoundingClientRect().x,
+              productsRef.current.getBoundingClientRect().y
+         );
+        }
 
-      if (sectionSelected === "Contacts"){
-        window.scrollTo(
-          contactsRef.current.getBoundingClientRect().x,
-          contactsRef.current.getBoundingClientRect().y
-     );
-    }
-      
-      
+        if (sectionSelected === "Contacts"){
+          window.scrollTo(
+            contactsRef.current.getBoundingClientRect().x,
+            contactsRef.current.getBoundingClientRect().y
+       );
+        }   
     };
+
   return (
     <HomeWrapper doScroll={doScroll}>
         
         {/* Hero Seccion */}
-        <Hero />
+        <Hero /> 
 
         {/* Abouts Seccion */}
-        <Abouts ref={aboutsRef} />
-        
+        <Abouts ref={aboutsRef} /> 
+       
         {/* Categories Seccion */}
-        <Categorias />
+        <Categorias /> 
         
         {/* Products Seccion */}
-        <Products ref={productsRef} />
+        <Products ref={productsRef} /> 
+       
 
         {/* Contacts Seccion */}
-        <Contacts ref={contactsRef} />
+        <Contacts ref={contactsRef} /> 
 
         {/* {console.log(aboutsRef)} */}
+
     </HomeWrapper>
   )
 }

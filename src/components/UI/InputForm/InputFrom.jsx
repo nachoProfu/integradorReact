@@ -5,7 +5,7 @@ import { ErrorMessage, Field } from 'formik';
 
 
 const InputFrom = ({name, type, placeholder, isError}) => {
-  console.log(isError)
+  //console.log(isError)
   return (
         <InputContainerStyled>
             <Field  
